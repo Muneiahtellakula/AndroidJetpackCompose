@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyComposeApp</string>
+    <string name="button_text">submit</string>
+</resources>

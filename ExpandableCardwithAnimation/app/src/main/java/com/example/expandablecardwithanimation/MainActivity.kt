@@ -23,7 +23,14 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                    // Greeting("Android")
-                    ExandableCard()
+                    ExandableCard(
+                        title = "My Title",
+                        descrption = "t is an important property of pyMOR’s interfaces that each method either returns\n" +
+                                "low-dimensional data or new VectorArray, Operator or Discretization objects. This\n" +
+                                "ensures that no high-dimensional data ever has to be communicated between the external\n" +
+                                "solver and pyMOR and that no code for handling the solver-specific high-dimensional data\n" +
+                                "structures has to be added to pyMOR."
+                    )
                 }
             }
         }
@@ -40,6 +47,13 @@ fun Greeting(name: String) {
 fun DefaultPreview() {
     ExpandableCardwithAnimationTheme {
        // Greeting("Android")
-        ExandableCard()
+        ExandableCard(
+            title = "Infinity learn",
+            descrption = "t is an important property of pyMOR’s interfaces that each method either returns\n" +
+                    "low-dimensional data or new VectorArray, Operator or Discretization objects. This\n" +
+                    "ensures that no high-dimensional data ever has to be communicated between the external\n" +
+                    "solver and pyMOR and that no code for handling the solver-specific high-dimensional data\n" +
+                    "structures has to be added to pyMOR."
+        )
     }
 }

@@ -3,6 +3,7 @@ package com.example.composetest
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -25,6 +26,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -81,18 +83,17 @@ fun DefaultPreview() {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun abc(){
-
+val context= LocalContext.current
     val sections = listOf("A", "B", "C", "D", "E", "F", "G")
-    val sprefarene:SharedPreferences
-    val spEdit:SharedPreferences.Editor
     LazyColumn(
         contentPadding = PaddingValues(all=12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.background(
             color = Color.Yellow))
     {
 
-        sections.forEach {  n ->
-                        Log.d("Main",n.toString())
+        sections.forEachIndexed { index, s ->
+                        Log.d("Main",s.toString())
+            Log.d("MainActivity","Sections 1")
             stickyHeader {
 
                 Text(
@@ -101,17 +102,23 @@ fun abc(){
                         .background(Color.LightGray)
                         .padding(12.dp)
                         .clickable {
-                            Log.d("Main", n.toString()) },
-                    text = n)
+                            Toast.makeText(context,s.toString(),Toast.LENGTH_LONG).show()
+                            Log.d("Main", "Header "+s.toString())
+                            Log.d("MainActivity","Sections 2")
+
+                                   },
+                    text = s)
             }
            
             items(10){
 
+
                 Text(modifier = Modifier
                     .padding(12.dp)
                     .clickable {
-                        Log.d("Main", n.toString()) },
-                    text = "Item$it from the $n")
+                        Toast.makeText(context,s.toString(),Toast.LENGTH_LONG).show()
+                        Log.d("Main", "Sub head "+s.toString()) },
+                    text = "Item$it from the $s")
             }
         }
     }

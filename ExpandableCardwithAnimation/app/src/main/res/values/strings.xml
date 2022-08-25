@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ExpandableCardwithAnimation</string>
+    <string name="text_name">It is an important property of pyMOR’s interfaces that each method either returns
+low-dimensional data or new VectorArray, Operator or Discretization objects. This
+ensures that no high-dimensional data ever has to be communicated between the external
+solver and pyMOR and that no code for handling the solver-specific high-dimensional data
+structures has to be added to pyMOR.
+</string>
+</resources>
